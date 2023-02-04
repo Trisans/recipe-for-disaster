@@ -1,11 +1,135 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+  <meta charset="UTF-8" />
+  <title>Recipe for Disaster</title>
+  <link rel="icon" type="image/png" href="../assets/recipe-tool-logo.png">
+  <link rel="stylesheet" href="./css/index.css" />
+
+  <script defer src="./javascript/tag-sort.js"></script>
+  <script defer src="./javascript/core.js"></script>
+  <script defer src="./javascript/events.js"></script>
+  <script defer src="./javascript/search.js"></script>
+  <script defer src="./javascript/tables.js"></script>
 </head>
+
 <body>
-    
-</body>
+  <div class="column">
+    <button id="carrotButton">
+      <img id="logo" src="../assets/recipe-tool-logo.png" alt="Recipe Tool Logo" width="85" height="85" />
+    </button>
+  </div>
+
+  <div id="nameWrapper">
+    <div id="nameBorder">
+      <h1 id="title"class="header">Recipe for Disaster</h1>
+    </div>
+  </div>
+  <br />
+
+  <div id="aboutDiv">
+    <button id="aboutButton" onclick="window.location.href='https://github.com/j-dogcoder/Recipe-Tool'">
+      <img src="../assets/github-mark.png" width="40" height="40">
+    </button>
+  </div>
+
+  <!--------------------------------------------------------------------------------------------------------------------->
+
+  <div id="addDiv" class="div">
+    <h1 class="header">Add a Recipe</h1>
+    <input type="text" id="recipeName" class="input" name="recipeName" placeholder="Recipe Name">
+    <br />
+    <div id="addFormDiv">
+      <form class="ingredientInput">
+        <label for="ingredient">Ingredient: </label>
+        <input type="text" id="ingredient" class="input" name="ingredient" placeholder="ex: tomato" /><br>
+        <label for="quantity">Quantity: </label>
+        <input type="number" id="quantity" class="input" name="quantity" min="1" max="999" value="1" /><br>
+        <label for="units">Units: </label>
+        <select name="units" id="units" class="sel">
+          <option value="unit">unit (generic)</option>
+          <option value="g">g</option>
+        </select><br><br>
+        <button type="add" class="special" id="addRowButton">Add</button>
+      </form>
+    </div>
+    <h1 class="header">Ingredients</h1><br>
+    <table id="addIngredients" class="table">
+      <th>Ingredient</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th>X</th>
+    </table>
+
+    <div id="timeDiv">
+      <label for="prepTime">Prep Time: </label>
+      <input type="number" id="prepTime" class="input" name="prepTime">
+
+      <select name="timeUnit" id="timeUnit" class="sel">
+        <option value="minute">minute</option>
+        <option value="hour">hour</option>
+      </select>
+    </div>
+    <br />
+
+    <button id="submitAdd" class="special">Add</button>
+    <button id="clearAddForm" class="special">Clear</button>
+  </div>
+
+  <!--------------------------------------------------------------------------------------------------------------------->
+
+  <div id="searchDiv" class="div">
+    <h1 class="header">Search Recipes</h1>
+    <div id="searchFormDiv">
+      <form class="ingredientInput">
+        <label for="ingredient">Ingredient: </label>
+        <input type="text" id="searchIngredient" class="input" name="ingredient" placeholder="ex: tomato"><br>
+        <label for="quantity">Quantity: </label>
+        <input type="number" id="searchQuantity" class="input" name="quantity" min="1" max="999" value="1" /><br>
+        <label for="units">Units: </label>
+        <select name="units" id="searchUnits" class="sel">
+          <option value="unit">unit (generic)</option>
+          <option value="g">g</option>
+        </select><br><br>
+        <button type="submit" class="special" id="searchRow">Add</button>
+      </form>
+    </div>
+    <h1 class="header">Ingredients</h1><br>
+    <table id="searchIngredients" class="table">
+      <th>Ingredient</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      <th>X</th>
+    </table>
+
+    <div id="availableTimeDiv">
+      <label for="availableTime">Available Time: </label>
+      <input type="number" id="availableTime" class="input" name="availableTime" value="45">
+
+      <select name="availableTimeUnit" id="availableTimeUnit" class="sel">
+        <option value="minute">minute</option>
+        <option value="hour">hour</option>
+      </select>
+    </div>
+    <br />
+
+    <button id="submitSearch" class="special">Search</button>
+    <button id="clearSearch" class="special">Clear</button>
+  </div>
+
+  <!--------------------------------------------------------------------------------------------------------------------->
+
+  <div id="outputDiv" class="div">
+    <h1 class="header">Output</h1>
+    <br />
+    <table id="output" class="table">
+      <th>Recipe</th>
+      <th>% Match</th>
+      <th>Time</th>
+    </table>
+  </div>
+
+  <body>
+
 </html>

@@ -1,0 +1,195 @@
+/*
+Recipe Calculator
+Built by @j-dogcoder and tristans
+Licenced under the EPL-2.0 License (file can be found in the root directory as LICENSE.md)
+*/
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 12%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+:root {
+  --accent: rgb(53, 53, 252);
+  /* --accent: orange; */
+}
+
+body {
+  background-color: rgb(38, 40, 44);
+  color: lightgray;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif;
+  justify-content: center;
+  display: inline;
+}
+
+td {
+  background-color: rgb(32, 33, 36);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  color: lightgray;
+}
+
+th {
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+
+  background-color: rgb(32, 33, 36);
+  color: lightgray;
+
+  padding: 5px;
+}
+
+.div {
+  background-color: rgb(32, 33, 36);
+  padding: 10px;
+  margin: 10px;
+  width: 400px;
+  text-align: center;
+  border: 2.5px solid gray;
+  border-radius: 12px;
+  float: left;
+  color: lightgray;
+}
+
+.special {
+  border: 2px solid;
+  border-radius: 4px;
+  background-color: transparent;
+
+  width: 64px;
+  height: 32px;
+  margin: 5px
+}
+
+.header {
+  color: lightgray;
+}
+
+.input {
+  border: 1.5px solid var(--accent);
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 5px;
+  color: whitesmoke;
+  margin: 5px;
+}
+
+.sel {
+  background-color: lightgray;
+  border: 1.5px solid var(--accent);
+}
+
+.del {
+  background-color: red;
+  border: hidden;
+  border-radius: 4px;
+}
+
+.table {
+  background-color: transparent;
+  border: 2px solid hidden;
+  border-radius: 4px;
+  text-align: center;
+  width: 400px;
+  color: black;
+}
+
+#aboutDiv {
+  background-color: transparent;
+  margin: 10px;
+  margin-top: -100px;
+  padding: 5px;
+  border-radius: 12px;
+  float: right;
+}
+
+#aboutButton {
+  background-color: lightgray;
+  border: hidden;
+  border-radius: 16px;
+}
+
+#nameBorder {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 15px;
+  margin-right: 500px;
+  margin-left: 500px;
+  margin-top: -10px;
+  height: 85px;
+  padding: 5px;
+  text-align: center;
+  background-color: rgb(32, 33, 36);
+  border: 2px solid gray;
+}
+
+#addFormDiv {
+  border: 2px solid gray;
+  border-radius: 12px;
+  color: lightgray;
+  padding: 5px;
+  text-align: left;
+}
+
+#searchFormDiv {
+  border: 2px solid gray;
+  border-radius: 12px;
+  color: lightgray;
+  padding: 5px;
+  text-align: left;
+}
+
+#addRow {
+  border-color: rgb(0, 255, 0);
+  color: rgb(0, 255, 0);
+}
+
+#searchRow {
+ border-color: rgb(0, 255, 0);
+ color: rgb(0, 255, 0);
+}
+
+#clearSearch {
+  border-color: red;
+  color: red;
+}
+
+#clearAddForm {
+  border-color: red;
+  color: red;
+}
+
+#submitAdd {
+  border-color: lightblue;
+  color: lightblue;
+}
+
+#submitSearch {
+  border-color: lightblue;
+  color: lightblue;
+}
+
+#outputDiv {
+  width: 500px;
+}
+
+#output {
+  width: 500px;
+}
+
+#carrotButton {
+  background-color: Transparent;
+  border-color: Transparent;
+}
