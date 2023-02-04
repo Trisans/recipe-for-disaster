@@ -31,7 +31,7 @@ submitAdd.addEventListener("click", () => {
         let recipeTime = [recipeTimeFlr, recipeTimeUnitFlr];
 
         // let tags = TODO: Add tag input
-        let tags = ["fruit", null, null, null];
+        let tags = ["fruit", "breakfast", "appetizer", "sweet"]
         
         core.addFood(recipeName, recipeIngredients, tags, recipeTime);
 
