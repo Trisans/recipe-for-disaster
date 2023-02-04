@@ -143,6 +143,10 @@ th {
   text-align: left;
 }
 
+#tagSelect {
+  margin: 5px;
+}
+
 #searchFormDiv {
   border: 2px solid gray;
   border-radius: 12px;
@@ -151,7 +155,7 @@ th {
   text-align: left;
 }
 
-#addRow {
+#addRowButton {
   border-color: rgb(0, 255, 0);
   color: rgb(0, 255, 0);
 }
