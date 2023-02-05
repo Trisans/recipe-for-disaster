@@ -8,6 +8,7 @@ const clearAdd = document.getElementById("clearAddForm");
 const submitSearch = document.getElementById("submitSearch");
 const searchRow = document.getElementById("searchRow");
 const clearSearch = document.getElementById("clearSearch");
+const about = document.getElementById("carrotButton");
 
 // "Add" form submit event listener (Table)
 addRowButton.addEventListener("click", (event) => {
