@@ -73,14 +73,21 @@ let tagSort = {
             let filtered = {};
             for (let i = 0; i < tagKeys.length; i++) {
                 let temp = core.foods[tagKeys[i]][query[i]];
+                console.log(temp);
                 let tempKeys = Object.keys(core.foods[tagKeys[i]][query[i]]);
                 for (let j = 0; j < tempKeys.length; j++) {
                     if (!(temp[tempKeys[j]] in filtered)) {
-                        filtered[tags[tagKeys[i]][j]] = temp[tempKeys[j]]
+                        filtered[tempKeys[j]] = temp[tempKeys[j]]
                     };
                 }
             }
-
+            let uKeys = Object.keys(core.foods.uncat);
+            for (let i = 0; i < uKeys.length; i++) {
+                if (!(core.foods.uncat[uKeys[i]] in filtered)) {
+                    filtered[uKeys[i]] = core.foods.uncat[uKeys[i]];
+                }
+            }
+            console.dir(filtered);
             return filtered;
         }
     },

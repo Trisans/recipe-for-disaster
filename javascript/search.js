@@ -15,18 +15,22 @@ let search = {
     },
     
     getMatch(a, b) {
+        console.log(a, b);
         let query = a.ingredients;
         let splice = b.ingredients;
-        const max = query.length * 2;
+        const max = splice.length * 2;
         let score = 0;
-        for (let i = 0; i < query.length; i++) {
-            if (query[i][0] == splice[i][0] && this.timeMatch(a.time, b.time)){
-                score++;
-                if (this.qtyUnitMatch(query[i][1], query[i][2], splice[i][1], splice[i][2])) {
+        for (let i = 0; i < query.length; i++){
+            for (let j = 0; j < splice.length; j++) {
+                if (query[i][0] == splice[j][0] && this.timeMatch(a.time, b.time)){
                     score++;
+                    if (this.qtyUnitMatch(query[i][1], query[i][2], splice[j][1], splice[j][2])) {
+                        score++;
+                    }
                 }
             }
         }
+        console.log(`Score: ${score}\nMax: ${max}`);
         return Math.ceil(score / max * 100);
     },
 
