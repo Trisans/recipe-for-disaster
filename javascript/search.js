@@ -15,7 +15,6 @@ let search = {
     },
     
     getMatch(a, b) {
-        console.log(a, b);
         let query = a.ingredients;
         let splice = b.ingredients;
         const max = splice.length * 2;
@@ -30,7 +29,6 @@ let search = {
                 }
             }
         }
-        console.log(`Score: ${score}\nMax: ${max}`);
         return Math.ceil(score / max * 100);
     },
 

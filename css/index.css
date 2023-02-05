@@ -135,6 +135,12 @@ th {
   border: 2px solid gray;
 }
 
+#tagDiv {
+  justify-self: center;
+  text-align: left;
+  width: 20%;
+}
+
 #addFormDiv {
   border: 2px solid gray;
   border-radius: 12px;

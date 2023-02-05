@@ -73,7 +73,6 @@ let tagSort = {
             let filtered = {};
             for (let i = 0; i < tagKeys.length; i++) {
                 let temp = core.foods[tagKeys[i]][query[i]];
-                console.log(temp);
                 let tempKeys = Object.keys(core.foods[tagKeys[i]][query[i]]);
                 for (let j = 0; j < tempKeys.length; j++) {
                     if (!(temp[tempKeys[j]] in filtered)) {
@@ -87,7 +86,6 @@ let tagSort = {
                     filtered[uKeys[i]] = core.foods.uncat[uKeys[i]];
                 }
             }
-            console.dir(filtered);
             return filtered;
         }
     },

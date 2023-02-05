@@ -19,7 +19,7 @@ let tables = {
             if (this.alreadyIncludes(ingredient)) {
                 console.log("That ingredient already exists");
             } else {
-                console.log(ingredient, qty, unit);
+                // console.log(ingredient, qty, unit);
                 // Add recipe to addCurrent
                 this.current.push([ingredient, qty, unit]);
                 // Create row
@@ -67,7 +67,7 @@ let tables = {
             if (this.alreadyIncludes(ingredient)) {
                 console.log("That ingredient already exists");
             } else {
-                console.log(ingredient, qty, unit);
+                // console.log(ingredient, qty, unit);
                 // Add recipe to addCurrent
                 this.current.push([ingredient, qty, unit]);
                 // Create row

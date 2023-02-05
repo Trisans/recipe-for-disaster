@@ -94,5 +94,4 @@ clearSearch.addEventListener("click", () => {
     }
     // Clear array
     tables.search.current = [];
-    console.log(tables.search.current);
 });
