@@ -32,7 +32,12 @@ submitAdd.addEventListener("click", () => {
         let recipeTime = [recipeTimeFlr, recipeTimeUnitFlr];
 
         // let tags = TODO: Add tag input
-        let tags = ["fruit", null, null, null];
+        let type = document.getElementById("addTypeTagSelect").value;
+        let meal = document.getElementById("addMealTagSelect").value;
+        let course = document.getElementById("addCourseTagSelect").value;
+        let flavor = document.getElementById("addFlavorTagSelect").value;
+
+        let tags = [type, meal, course, flavor];
         
         core.addFood(recipeName, recipeIngredients, tags, recipeTime);
 
@@ -77,13 +82,32 @@ searchRow.addEventListener("click", (event) => {
 
 // Search the
 submitSearch.addEventListener("click", () => {
+    // let type = document.getElementById("searchTypeTagSelect").value;
+    // let meal = document.getElementById("searchMealTagSelect").value;
+    // let course = document.getElementById("searchCourseTagSelect").value;
+    // let flavor = document.getElementById("searchFlavorTagSelect").value;
+
+    // let srchq = {
+    //     ingredients: tables.search.current,
+    //     time: [document.getElementById("availableTime").value,
+    //         document.getElementById("availableTimeUnit").value],
+    //     tags: ["fruit", null, null, null]
+    // }
+    // core.searchFoods(srchq);
+    
+    let type = document.getElementById("searchTypeTagSelect").value;
+    let meal = document.getElementById("searchMealTagSelect").value;
+    let course = document.getElementById("searchCourseTagSelect").value;
+    let flavor = document.getElementById("searchFlavorTagSelect").value;
+
     let srchq = {
         ingredients: tables.search.current,
         time: [document.getElementById("availableTime").value,
             document.getElementById("availableTimeUnit").value],
-        tags: ["fruit", "breakfast", "appetizer", "sweet"]
+        tags: [type, meal, course, flavor]
     }
     core.searchFoods(srchq);
+    
 });
 
 clearSearch.addEventListener("click", () => {
