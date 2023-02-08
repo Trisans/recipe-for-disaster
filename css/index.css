@@ -73,6 +73,10 @@ th {
   margin: 5px
 }
 
+.special:hover {
+  opacity: 75%;
+}
+
 .header {
   color: lightgray;
 }

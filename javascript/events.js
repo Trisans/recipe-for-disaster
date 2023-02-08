@@ -1,6 +1,6 @@
 // Written by Tristan Gottshall 
 core.initialize();
-tagSort.initialize.runAll();
+
 
 const addRowButton = document.getElementById("addRowButton");
 const submitAdd = document.getElementById("submitAdd");
@@ -9,6 +9,7 @@ const submitSearch = document.getElementById("submitSearch");
 const searchRow = document.getElementById("searchRow");
 const clearSearch = document.getElementById("clearSearch");
 const about = document.getElementById("carrotButton");
+const signin = document.getElementById("signInButton");
 
 // "Add" form submit event listener (Table)
 addRowButton.addEventListener("click", (event) => {
@@ -82,29 +83,21 @@ searchRow.addEventListener("click", (event) => {
 
 // Search the
 submitSearch.addEventListener("click", () => {
-    // let type = document.getElementById("searchTypeTagSelect").value;
-    // let meal = document.getElementById("searchMealTagSelect").value;
-    // let course = document.getElementById("searchCourseTagSelect").value;
-    // let flavor = document.getElementById("searchFlavorTagSelect").value;
-
-    // let srchq = {
-    //     ingredients: tables.search.current,
-    //     time: [document.getElementById("availableTime").value,
-    //         document.getElementById("availableTimeUnit").value],
-    //     tags: ["fruit", null, null, null]
-    // }
-    // core.searchFoods(srchq);
-    
     let type = document.getElementById("searchTypeTagSelect").value;
     let meal = document.getElementById("searchMealTagSelect").value;
     let course = document.getElementById("searchCourseTagSelect").value;
     let flavor = document.getElementById("searchFlavorTagSelect").value;
 
     let srchq = {
-        ingredients: tables.search.current,
         time: [document.getElementById("availableTime").value,
             document.getElementById("availableTimeUnit").value],
         tags: [type, meal, course, flavor]
+    }
+
+    if (tables.search.current.length > 0) {
+        srchq.ingredients = tables.search.current;
+    } else if (accounts.currentUser != undefined && accounts.currentUser.pantry.length > 0) {
+        srchq.ingredients = accounts.currentUser.pantry;
     }
     core.searchFoods(srchq);
     
@@ -119,3 +112,19 @@ clearSearch.addEventListener("click", () => {
     // Clear array
     tables.search.current = [];
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    core.initialize();
+    core.updateStatus();
+    console.log("Recipe Tool | Food Poisoning Edition");
+})
+
+signin.addEventListener("click", () => {
+    let name = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    if (accounts.signIn(name, password)) {
+        // location.href = "../index.html";
+    } else {
+        console.log("Invalid Sign-in information.  Please try again (unless you are trying to steal information, then please don't try again)");
+    }
+},)

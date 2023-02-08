@@ -29,7 +29,7 @@ let core = {
     },
 
     initialize: function() {
-        console.log("Recipe Tool | Food Poisoning Edition");
+        tagSort.initialize.runAll();
     },
 
     addFood: function(name, ingredients, tags, time) {
@@ -42,6 +42,14 @@ let core = {
         let filtered = tagSort.search.filter(query.tags);
         console.dir(filtered);
         tables.output.addRow(search.searchFiltered(query, filtered));
+    },
+
+    updateStatus() {
+        if (accounts.notSignedIn()) {
+            document.getElementById("signInButton").textContent = "Log In";
+        } else {
+            document.getElementById("signInButton").textContent = "View Account";
+        }
     },
 
     ping: function() {
