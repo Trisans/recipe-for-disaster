@@ -1,7 +1,7 @@
 // Written by Tristan Gottshall
 let search = {
     searchFiltered(query, filtered) {
-        // clearOutput();
+        tables.output.clearOutput();
         let fKeys = Object.keys(filtered);
         let results = {};
         for (let i = 0; i < fKeys.length; i++) {

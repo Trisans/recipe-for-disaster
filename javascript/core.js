@@ -38,9 +38,7 @@ let core = {
     },
 
     searchFoods: function(query) {
-        console.dir(query)
         let filtered = tagSort.search.filter(query.tags);
-        console.dir(filtered);
         tables.output.addRow(search.searchFiltered(query, filtered));
     },
 

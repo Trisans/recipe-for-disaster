@@ -70,9 +70,11 @@ let tagSort = {
 
     search: {    
         filter(query) {
+            // filter recipes
             let filtered = {};
             for (let i = 0; i < tagKeys.length; i++) {
-                if (query[i] != "null") {let temp = core.foods[tagKeys[i]][query[i]];
+                if (query[i] != "null") {
+                    let temp = core.foods[tagKeys[i]][query[i]];
                     let tempKeys = Object.keys(core.foods[tagKeys[i]][query[i]]);
                     for (let j = 0; j < tempKeys.length; j++) {
                         if (!(temp[tempKeys[j]] in filtered)) {
@@ -81,13 +83,29 @@ let tagSort = {
                     }
                 }
             }
+            // Check if all tags are null
             let uKeys = Object.keys(core.foods.uncat);
+            fKeys = Object.keys(filtered);
+            if (fKeys.length == 0 && this.noTags(query)) {
+                console.log("You did not search with any tags.  Searching the whole database...")
+                return core.database;
+            }
+            // add uncat recipes
             for (let i = 0; i < uKeys.length; i++) {
                 if (!(core.foods.uncat[uKeys[i]] in filtered)) {
                     filtered[uKeys[i]] = core.foods.uncat[uKeys[i]];
                 }
             }
             return filtered;
+        },
+
+        noTags(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] != "null") {
+                    return false;
+                }
+            }
+            return true;
         }
     },
 

@@ -10,6 +10,7 @@ const searchRow = document.getElementById("searchRow");
 const clearSearch = document.getElementById("clearSearch");
 const about = document.getElementById("carrotButton");
 const signin = document.getElementById("signInButton");
+const createAcc = document.getElementById("createAccButton")
 
 // "Add" form submit event listener (Table)
 addRowButton.addEventListener("click", (event) => {
@@ -81,7 +82,7 @@ searchRow.addEventListener("click", (event) => {
     document.getElementById("searchIngredient").value = "";
 });
 
-// Search the
+
 submitSearch.addEventListener("click", () => {
     let type = document.getElementById("searchTypeTagSelect").value;
     let meal = document.getElementById("searchMealTagSelect").value;
@@ -98,6 +99,9 @@ submitSearch.addEventListener("click", () => {
         srchq.ingredients = tables.search.current;
     } else if (accounts.currentUser != undefined && accounts.currentUser.pantry.length > 0) {
         srchq.ingredients = accounts.currentUser.pantry;
+    } else {
+        console.log("No ingredients entered, and none in pantry.  Cannot search");
+        return -1;
     }
     core.searchFoods(srchq);
     
@@ -120,11 +124,15 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 signin.addEventListener("click", () => {
-    let name = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    if (accounts.signIn(name, password)) {
-        // location.href = "../index.html";
+    if (accounts.currentUser == undefined) {
+        let name = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        if (accounts.signIn(name, password)) {
+            // location.href = "../index.html";
+        } else {
+            console.log("Invalid Sign-in information.");
+        }
     } else {
-        console.log("Invalid Sign-in information.  Please try again (unless you are trying to steal information, then please don't try again)");
+        // View account
     }
 },)
