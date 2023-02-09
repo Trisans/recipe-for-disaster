@@ -36,9 +36,15 @@ let accounts = {
     currentUser: undefined,
 
     createAcc(username, password)  {
-        this.accountList[username] = new Account(username, password);
-        this.count++;
-        return this.accountList[username];
+        if (!(username in this.accountList)) {
+            this.accountList[username] = new Account(username, password);
+            this.count++;
+            console.log(`Created account ${username}.`);
+            return this.accountList[username];
+        } else {
+            console.log("That account already exists.")
+        }
+        
     },
 
     notSignedIn() {
