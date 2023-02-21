@@ -1,3 +1,4 @@
+// Written by Tristan Gottshall
 function Account(username, password) {
     this.name = username;
     this.password = password;
