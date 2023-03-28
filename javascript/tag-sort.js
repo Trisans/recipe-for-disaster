@@ -1,8 +1,14 @@
 // Written by Tristan Gottshall
+// This file exists:
+// 1. Because it's cool
+// 2. To potentially reduce search time on a large database
+
+// Tags can be added and the program will still work.  HOWEVER, if tags are removed, all recipes with those tags must be
+// modified or the program may produce unexpected results.  HTML document must also be changed
 let tags = {
     type: ['fruit', 'vegetable', 'meat', 'baked', 'prepared', 'beverage', 'cooked'],
     meal: ['breakfast', 'lunch', 'dinner'],
-    course: ['appetizer', 'entree', 'dessert', 'side', 'beverage'],
+    course: ['appetizer', 'entree', 'dessert', 'side'],
     flavor: ['sweet', 'salty', 'sour', 'bitter']
 }
 let tagKeys = Object.keys(tags);
@@ -15,7 +21,7 @@ let tagSort = {
             }
             this.fill(); // Fill main recipe list with tags
             this.sortAll(); // Sort all recipes in the database
-        },
+        }, 
 
         sortAll() {
             // Call sortIndividual for every food object in the database
@@ -96,9 +102,11 @@ let tagSort = {
                     filtered[uKeys[i]] = core.foods.uncat[uKeys[i]];
                 }
             }
+            // filtered is an object that contains recipes matching query tags and uncategorized recipes
             return filtered;
         },
 
+        // If user didn't input any tags to search with, return true
         noTags(arr) {
             for (let i = 0; i < arr.length; i++) {
                 if (arr[i] != "null") {
