@@ -1,6 +1,4 @@
 // Written by Tristan Gottshall
-
-// Account template/object
 function Account(username, password) {
     this.name = username;
     this.password = password;
